@@ -1,12 +1,20 @@
 const express = require("express");
 
+const path = require("path");
+
 const app = express();
 
 const port = 3000;
 
+// serve static files
+app.use(express.static("public"));
+
 // route
 app.get('/', (req, res) => {
-    res.send("Welcome to Express.js");
+    // res.send("Welcome to Express.js");
+    
+    // serve html file using route
+    res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
 // route parameters
