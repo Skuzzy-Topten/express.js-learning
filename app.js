@@ -25,6 +25,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
+// submit
+app.post("/submit", (req, res) => {
+    const name = req.body.name;
+
+    res.send(`Form submitted by ${name}`);
+});
+
 // route parameters
 app.get("/user/:name", (req, res) => {
     res.send(`Hello ${req.params.name}`);
